@@ -1,0 +1,122 @@
+
+<div class="container">
+
+  <h1>
+    Tagup Challenge
+  </h1>
+
+  <div *ngIf="successMsg">
+    <div class="alert alert-success">{{successMsg}}</div>
+  </div>
+
+    <h3><a (click)="getAll()">List all the records</a></h3>
+    <h3><a (click)="createEmpty()">Create a record</a></h3>
+
+  <div *ngIf="createRecord" style="clear: both">
+    <br>
+    <div class="col-xs-12">
+      <b><div class="col-xs-2" >Timestamp</div>
+        <div class="col-xs-2" >Value 1</div>
+        <div class="col-xs-2">Value 2</div>
+        <div class="col-xs-2">Value 3</div></b>
+    </div>
+    <div class="col-xs-12">
+      <div class="col-xs-2"><input type="number" class="form-control" [(ngModel)]="newRecord.timestamp"></div>
+      <div class="col-xs-2"><input type="text" class="form-control" [(ngModel)]="newRecord.value1"></div>
+      <div class="col-xs-2"><input type="number" class="form-control" [(ngModel)]="newRecord.value2"></div>
+      <div class="col-xs-2">
+        <input type="radio" name="value3" [value]="true" [(ngModel)]="newRecord.value3" checked="checked"> True
+        &nbsp;&nbsp;<input type="radio" name="value3" [value]="false" [(ngModel)]="newRecord.value3"> False
+      </div>
+      <div class="col-xs-2" *ngIf="createBtn"><button type="submit" class="btn btn-success" (click)="create()">Create</button></div>
+      <div class="col-xs-2" *ngIf="updateBtn"><button type="submit" class="btn btn-success" (click)="update(newRecord)">Update</button></div>
+      <br>
+      <br>
+    </div>
+
+  </div>
+
+    <h3><a (click)="getId()">Read a specific record</a></h3>
+
+    <div *ngIf="showGetId">
+      <br>
+      <div class="col-xs-3">
+        <label>Please enter the record ID</label>
+      </div>
+      <div class="col-xs-5">
+        <input type="text" class="col-xs-3 form-control" [(ngModel)]="recordId">
+      </div>
+      <div class="col-xs-4">
+        <button type="submit" class="btn btn-success" (click)="getById()">Submit</button>
+      </div>
+
+    <table class="table" *ngIf="record">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>timestamp</th>
+        <th>value1</th>
+        <th>value2</th>
+        <th>value3</th>
+        <th>Created on</th>
+        <th>Modified on</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{record._id}}</td>
+        <td>{{record.timestamp}}</td>
+        <td>{{record.value1}}</td>
+        <td>{{record.value2}}</td>
+        <td>{{record.value3}}</td>
+        <td>{{record.creationDate}}</td>
+        <td>{{record.lastModificationDate}}</td>
+      </tr>
+      </tbody>
+    </table>
+      <br>
+      <br>
+    </div>
+
+
+
+
+
+
+  <div *ngIf="dataList?.length>0">
+    <h4>All Records</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>timestamp</th>
+          <th>value1</th>
+          <th>value2</th>
+          <th>value3</th>
+          <th>Created on</th>
+          <th>Modified on</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doc of dataList">
+          <td>{{doc._id}}</td>
+          <td>{{doc.timestamp}}</td>
+          <td>{{doc.value1}}</td>
+          <td>{{doc.value2}}</td>
+          <td>{{doc.value3}}</td>
+          <td>{{doc.creationDate}}</td>
+          <td>{{doc.lastModificationDate}}</td>
+          <td><button (click)="deleteById(doc._id)"><span class="glyphicon glyphicon-trash"></span></button></td>
+          <td><button (click)="editRecord(doc)"><span class="glyphicon glyphicon-pencil"></span></button></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+  </div>
+
+
+
+</div>
+
+
