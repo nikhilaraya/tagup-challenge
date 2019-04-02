@@ -3,6 +3,8 @@ The application is deployed @ https://tagup-backend-challenge.herokuapp.com/
 # AngularFourMEANSeed
 
 After you clone this repository and run "npm install"
+Install mongoDB and run commands mongo and mongod on two terminals
+
 To start the project
 Open two terminals, One to start the front end, One to start the backend
 
