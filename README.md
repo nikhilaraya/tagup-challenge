@@ -1,5 +1,7 @@
 The application is deployed @ https://tagup-backend-challenge.herokuapp.com/
 
+![alt text](https://github.com/nikhilaraya/tagup-challenge/blob/master/Tagup%20screenshot.png)
+
 # AngularFourMEANSeed
 
 After you clone this repository and run "npm install"
