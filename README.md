@@ -1,4 +1,5 @@
 The application is deployed @ https://tagup-backend-challenge.herokuapp.com/
+
 Below is a screenshot
 
 ![alt text](https://github.com/nikhilaraya/tagup-challenge/blob/master/Tagup%20screenshot.png)
